@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasión en Pareja - Juegos Picantes</title>
+    <meta name="description"
+        content="Una colección de juegos apasionados para disfrutar en pareja con un diseño elegante y moderno.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- PWA: instalable + offline -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d63031">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Pasión">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="particles" id="particles"></div>
+    <div id="app">
+        <!-- Navigation / Header -->
+        <header>
+            <div class="logo">
+                <i data-lucide="heart" class="heart-icon"></i>
+                <h1>Pasión en Pareja</h1>
+            </div>
+            <nav id="main-nav">
+                <button class="nav-btn active" data-view="home"><i data-lucide="home"></i> Inicio</button>
+                <button class="nav-btn" id="config-btn" type="button"><i data-lucide="settings"></i> Ajustes</button>
+            </nav>
+        </header>
+
+        <main id="content">
+            <!-- Content will be injected here -->
+        </main>
+
+        <!-- Footer / Mobile Nav -->
+        <footer>
+            <p>&copy; 2024 Creado con ❤️ para momentos especiales</p>
+        </footer>
+    </div>
+
+    <!-- Templates for views -->
+    <template id="view-home">
+        <section class="hero">
+            <h2>Aviva la llama</h2>
+            <p id="home-greeting">Elige un juego para comenzar la aventura con tu pareja.</p>
+            <div class="intensity-bar" id="intensity-bar" role="group" aria-label="Nivel de intensidad">
+                <span class="intensity-label">Intensidad:</span>
+                <button class="int-chip" data-level="todos" type="button">Todos</button>
+                <button class="int-chip" data-level="suave" type="button">Suave</button>
+                <button class="int-chip" data-level="picante" type="button">Picante</button>
+                <button class="int-chip" data-level="extremo" type="button">Extremo</button>
+            </div>
+        </section>
+        <div class="game-grid">
+            <div class="game-card" data-game="roulette-pos">
+                <div class="card-icon"><i data-lucide="rotate-cw"></i></div>
+                <h3>Ruleta de Posiciones</h3>
+                <p>Deja que el azar decida la posición y el tiempo.</p>
+            </div>
+            <div class="game-card" data-game="body-dice">
+                <div class="card-icon"><i data-lucide="dices"></i></div>
+                <h3>Dados de Acción</h3>
+                <p>Descubre qué parte de tu cuerpo interactúa con la de tu pareja.</p>
+            </div>
+            <div class="game-card" data-game="spicy-questions">
+                <div class="card-icon"><i data-lucide="message-circle-warning"></i></div>
+                <h3>Preguntas Picantes</h3>
+                <p>Si, No o Tal vez. La honestidad es clave.</p>
+            </div>
+            <div class="game-card" data-game="dare-punishment">
+                <div class="card-icon"><i data-lucide="flame"></i></div>
+                <h3>Reto o Castigo</h3>
+                <p>Pone a prueba tu audacia con cosas placenteras.</p>
+            </div>
+            <div class="game-card" data-game="prohibition">
+                <div class="card-icon"><i data-lucide="ban"></i></div>
+                <h3>La Prohibición</h3>
+                <p>No tocar... por ahora. El que cede, paga penitencia.</p>
+            </div>
+            <div class="game-card" data-game="number-dice">
+                <div class="card-icon"><i data-lucide="dices"></i></div>
+                <h3>Duelo de Dados</h3>
+                <p>El número más alto manda.</p>
+            </div>
+            <div class="game-card" data-game="master-roulette">
+                <div class="card-icon"><i data-lucide="compass"></i></div>
+                <h3>¿Qué haremos ahora?</h3>
+                <p>Ruleta maestra que decide el juego y quién lo hace.</p>
+            </div>
+            <div class="game-card" data-game="jenga">
+                <div class="card-icon"><i data-lucide="layers"></i></div>
+                <h3>Jenga Picante</h3>
+                <p>Saca fichas de la torre 3D y cumple el reto. ¡El que la tumbe, paga!</p>
+            </div>
+            <div class="game-card" data-game="durazno">
+                <div class="card-icon"><i data-lucide="cherry"></i></div>
+                <h3>Carrera del Durazno</h3>
+                <p>Tablero de cartas y promesas. El último en llegar cumple lo prometido.</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Roulette Positions Template -->
+    <template id="view-roulette-pos">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>Ruleta de Posiciones</h2>
+                <p>Gira la ruleta para descubrir tu próxima aventura.</p>
+
+                <div class="roulette-container">
+                    <div class="roulette-pointer"><i data-lucide="chevron-down" size="40"></i></div>
+                    <div id="pos-wheel" class="roulette-wheel"></div>
+                </div>
+
+                <div class="result-box">
+                    <div id="pos-img-container" class="pos-img-container" style="display: none;">
+                        <img id="pos-img" src="" alt="Posición">
+                    </div>
+                    <h3 id="pos-result">---</h3>
+                    <p id="time-result">---</p>
+                    <p id="pos-desc" class="pos-description">---</p>
+                </div>
+
+                <button id="spin-pos-btn" class="spin-btn">GIRAR RULETA</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Body Dice Template -->
+    <template id="view-body-dice">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>Dados de Acción</h2>
+                <p>El destino marcará el contacto.</p>
+
+                <div class="dice-layout">
+                    <div class="dice-box">
+                        <div class="dice-container">
+                            <span class="dice-label">Con tu</span>
+                            <div id="die-left" class="die">?</div>
+                            <div id="who-left" class="dice-who">---</div>
+                        </div>
+
+                        <div class="die-middle">Ayudarás a</div>
+
+                        <div class="dice-container">
+                            <span class="dice-label">a tu pareja con</span>
+                            <div id="die-right" class="die">?</div>
+                            <div id="who-right" class="dice-who">---</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="action-time-container" class="dice-time"
+                    style="margin-top: 1.5rem; visibility: hidden; font-weight: 700; color: var(--primary-pink); display: flex; align-items: center; gap: 0.5rem; justify-content: center; font-size: 1.2rem;">
+                    <i data-lucide="timer"></i> <span id="action-time">---</span>
+                </div>
+
+                <button id="roll-body-btn" class="spin-btn">LANZAR DADOS</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Spicy Questions Template -->
+    <template id="view-spicy-questions">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>Preguntas Picantes</h2>
+                <p>Responde con sinceridad: Sí, No o Tal vez.</p>
+
+                <div class="card-stack">
+                    <div class="spicy-card">
+                        <h4 id="question-text">¿Estás listo para la verdad?</h4>
+                        <div class="card-actions">
+                            <button class="action-btn btn-yes">Sí</button>
+                            <button class="action-btn btn-no">No</button>
+                            <button class="action-btn btn-maybe">Tal vez</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="next-question" class="spin-btn">SIGUIENTE PREGUNTA</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Dare or Punishment Template -->
+    <template id="view-dare-punishment">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>Reto o Castigo</h2>
+                <p>¿Te atreves o prefieres la penitencia?</p>
+
+                <div id="dare-turn-info" class="turn-indicator">
+                    <span id="dare-turn-text">Cargando turno...</span>
+                </div>
+
+                <div class="result-display card-style">
+                    <p id="dare-result">Pulsa en "NUEVO RETO" para comenzar...</p>
+                </div>
+
+                <div id="dare-verification" class="verification-area" style="display: none;">
+                    <p id="verify-text">¿Se cumplió el reto?</p>
+                    <div class="verify-btns">
+                        <button id="btn-dare-yes" class="action-btn btn-yes">SÍ</button>
+                        <button id="btn-dare-no" class="action-btn btn-no">NO (Castigo)</button>
+                    </div>
+                </div>
+
+                <div class="main-actions">
+                    <button id="btn-new-dare" class="spin-btn">NUEVO RETO</button>
+                    <button id="btn-manual-punish" class="spin-btn punish-btn">CASTIGO DIRECTO</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Prohibition Template -->
+    <template id="view-prohibition">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>La Prohibición</h2>
+                <p>El arte de tocar sin romper la regla.</p>
+
+                <div id="prohibit-turn-info" class="turn-indicator">
+                    <span id="prohibit-turn-text">Gira para descubrir quién manda...</span>
+                </div>
+
+                <div class="roulette-container">
+                    <div class="roulette-pointer"><i data-lucide="chevron-down" size="40"></i></div>
+                    <div id="prohibit-wheel" class="roulette-wheel"></div>
+                </div>
+
+                <div class="result-box card-style" style="flex-direction: column; padding: 2rem;">
+                    <p id="prohibit-instruction" style="font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.4;">---
+                    </p>
+                    <h3 id="prohibit-target" style="color: var(--passion-red); font-size: 1.8rem; margin: 0.5rem 0;">---
+                    </h3>
+                    <p id="prohibit-time" style="font-size: 1.4rem; color: var(--primary-pink); font-weight: 700;">---
+                    </p>
+                </div>
+
+                <button id="spin-prohibit-btn" class="spin-btn">DESCUBRIR PROHIBICIÓN</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Number Dice Template -->
+    <template id="view-number-dice">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>Duelo de Dados</h2>
+                <p>El número más alto manda esta ronda.</p>
+
+                <div class="dice-box">
+                    <div id="num-die-1" class="die die-male" style="font-size: 3.5rem;">1</div>
+                    <div id="num-die-2" class="die die-female" style="font-size: 3.5rem;">1</div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3 id="dice-winner" style="color: var(--primary-red); font-size: 1.8rem;">¡Tira los dados!</h3>
+                </div>
+
+                <button id="roll-numbers-btn" class="spin-btn">LANZAR DADOS</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Master Roulette Template -->
+    <template id="view-master-roulette">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area">
+                <h2>¿Qué haremos ahora?</h2>
+                <p>La ruleta maestra decide el destino.</p>
+
+                <div class="roulette-container">
+                    <div class="roulette-pointer"><i data-lucide="chevron-down" size="40"></i></div>
+                    <div id="master-wheel" class="roulette-wheel"></div>
+                </div>
+
+                <div class="result-box card-style" style="flex-direction: column; padding: 2rem;">
+                    <div id="master-icon-container" style="margin-bottom: 1rem; color: var(--passion-red);"></div>
+                    <h3 id="master-game-result" style="color: var(--passion-red); font-size: 1.8rem; margin: 0.5rem 0;">
+                        ---</h3>
+                    <p id="master-actor-result"
+                        style="font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 1rem;">---
+                    </p>
+                    <p id="master-game-desc" style="font-size: 1rem; line-height: 1.4; color: var(--text-dark);">---</p>
+                </div>
+
+                <button id="spin-master-btn" class="spin-btn">GIRAR DESTINO</button>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Jenga Picante Template -->
+    <template id="view-jenga">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+            <div class="game-area jenga-area">
+                <h2>Jenga Picante</h2>
+                <p>Gira la torre, elige una ficha y cúmplela. ¡No la tumbes!</p>
+
+                <div id="jenga-turn" class="turn-indicator">
+                    <span id="jenga-turn-text">Cargando turno...</span>
+                </div>
+
+                <div class="jenga-risk">
+                    <div class="jenga-risk-bar"><div id="jenga-risk-fill"></div></div>
+                    <span id="jenga-risk-label">Riesgo de caída: 0%</span>
+                </div>
+
+                <div class="jenga-stage" id="jenga-stage">
+                    <div class="jenga-tower" id="jenga-tower"></div>
+                </div>
+                <p class="jenga-hint"><i data-lucide="move"></i> Arrastra para girar &nbsp;·&nbsp; <i data-lucide="hand"></i> Toca una ficha para sacarla</p>
+
+                <div id="jenga-card" class="jenga-card" style="display:none;">
+                    <span class="jenga-card-tag" id="jenga-card-tag">RETO</span>
+                    <p id="jenga-card-text">---</p>
+                    <div id="jenga-card-timer"></div>
+                    <button id="jenga-card-done" class="spin-btn">¡HECHO!</button>
+                </div>
+
+                <button id="jenga-reset" class="spin-btn punish-btn" style="display:none;">REINICIAR TORRE</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Carrera del Durazno Template -->
+    <template id="view-durazno">
+        <div class="view-container">
+            <button class="back-btn"><i data-lucide="arrow-left"></i> Volver</button>
+
+            <!-- Paso 1: promesas -->
+            <div class="game-area" id="durazno-setup">
+                <h2>Carrera del Durazno</h2>
+                <p>Antes de empezar, cada quien promete algo que cumplirá <strong>si pierde</strong>.</p>
+                <div class="promise-form">
+                    <label class="promise-field">
+                        <span id="promise-label-1">Promesa de Jugador 1</span>
+                        <input type="text" id="promise-1" maxlength="120" placeholder="Ej: cocinar la cena desnudo/a...">
+                    </label>
+                    <label class="promise-field">
+                        <span id="promise-label-2">Promesa de Jugador 2</span>
+                        <input type="text" id="promise-2" maxlength="120" placeholder="Ej: un masaje de 30 minutos...">
+                    </label>
+                </div>
+                <button id="durazno-start" class="spin-btn">EMPEZAR CARRERA</button>
+            </div>
+
+            <!-- Paso 2: tablero -->
+            <div class="durazno-scene" id="durazno-scene" style="display:none;">
+                <div class="durazno-hud">
+                    <div class="durazno-player" id="durazno-p1"><span class="dp-name">P1</span><span class="dp-pos">0</span></div>
+                    <div class="durazno-turn" id="durazno-turn">Turno de...</div>
+                    <div class="durazno-player" id="durazno-p2"><span class="dp-name">P2</span><span class="dp-pos">0</span></div>
+                </div>
+                <div class="durazno-main">
+                    <div class="durazno-decks" id="durazno-decks"></div>
+                    <div class="durazno-board" id="durazno-board"></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal de Ajustes (nombres + intensidad) -->
+    <div id="setup-overlay" class="setup-overlay" style="display:none;">
+        <div class="setup-modal">
+            <h3>Ajustes de la pareja</h3>
+            <label class="promise-field">
+                <span>Nombre del Jugador 1</span>
+                <input type="text" id="setup-name-1" maxlength="20" placeholder="Ej: Ana">
+            </label>
+            <label class="promise-field">
+                <span>Nombre del Jugador 2</span>
+                <input type="text" id="setup-name-2" maxlength="20" placeholder="Ej: Leo">
+            </label>
+            <div class="setup-intensity">
+                <span>Intensidad por defecto</span>
+                <div class="intensity-bar" id="setup-int-bar">
+                    <button class="int-chip" data-level="todos" type="button">Todos</button>
+                    <button class="int-chip" data-level="suave" type="button">Suave</button>
+                    <button class="int-chip" data-level="picante" type="button">Picante</button>
+                    <button class="int-chip" data-level="extremo" type="button">Extremo</button>
+                </div>
+            </div>
+            <button id="setup-save" class="spin-btn">GUARDAR</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Registro del Service Worker (solo funciona en https / en Vercel, no con doble clic)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { }));
+        }
+    </script>
+</body>
+
+</html>

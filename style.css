@@ -1,0 +1,1236 @@
+:root {
+    --primary-red: #d63031;
+    --passion-red: #ff4d4d;
+    --primary-pink: #ff758c;
+    --soft-pink: #ffafbd;
+    --white: #ffffff;
+    --bg-gradient: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --text-dark: #2d3436;
+    --font-ui: 'Outfit', sans-serif;
+    --font-title: 'Playfair Display', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-ui);
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header & Navigation */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo h1 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--primary-red);
+    font-style: italic;
+}
+
+.heart-icon {
+    color: var(--passion-red);
+    fill: var(--passion-red);
+    animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+.nav-btn {
+    background: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    color: var(--primary-red);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(214, 48, 49, 0.2);
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 48, 49, 0.3);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.hero h2 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--white);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* Game Cards Grid */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.game-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--white);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: var(--primary-pink);
+    box-shadow: 0 10px 20px rgba(255, 117, 140, 0.2);
+}
+
+.game-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--primary-red);
+}
+
+.game-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-dark);
+}
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    color: var(--white);
+    font-weight: 300;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #fff5f6;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.pos-img-container {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid white;
+}
+
+#pos-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.pos-description {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+#pos-result,
+#prohibit-target,
+#master-game-result {
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin-bottom: 0.5rem;
+}
+
+.animate-pop {
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    bottom: -50px;
+    background: var(--white);
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>") no-repeat center/contain;
+    width: 20px;
+    height: 20px;
+    animation: float var(--d) linear infinite;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.back-btn {
+    margin-bottom: 2rem;
+    background: transparent;
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Roulette & Dice Styles */
+.game-area {
+    background: white;
+    border-radius: 32px;
+    padding: 3rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.roulette-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 2rem 0;
+}
+
+.roulette-wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #f1f2f6;
+    position: relative;
+    overflow: hidden;
+    transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+}
+
+.roulette-pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    color: var(--primary-red);
+}
+
+.spin-btn {
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    background: var(--passion-red);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.spin-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Dice Styles */
+.dice-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.dice-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dice-label {
+    font-weight: 600;
+    color: var(--primary-pink);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.die {
+    width: 130px;
+    height: 130px;
+    background: var(--white);
+    border: 4px solid var(--primary-pink);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 1rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.die-male {
+    border-color: #3498db !important;
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2) !important;
+}
+
+.die-female {
+    border-color: #ff758c !important;
+    box-shadow: 0 10px 20px rgba(255, 117, 140, 0.2) !important;
+}
+
+.die.rolling {
+    animation: roll 0.6s infinite;
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.die-middle {
+    font-family: var(--font-title);
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--primary-red);
+}
+
+/* Question Cards */
+.card-stack {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.spicy-card {
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--soft-pink);
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.spicy-card h4 {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-yes {
+    background: #55efc4;
+    color: #00b894;
+}
+
+.btn-no {
+    background: #ff7675;
+    color: #d63031;
+}
+
+.btn-maybe {
+    background: #ffeaa7;
+    color: #fdcb6e;
+}
+
+/* Spicy Questions Premium Styles */
+#question-text {
+    transition: opacity 0.3s ease;
+}
+
+.question-roles {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    align-items: center;
+    color: var(--text-dark);
+}
+
+.role-badge {
+    background: var(--soft-pink);
+    color: var(--primary-red);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    border: 1px solid var(--primary-pink);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.main-question {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+/* Dare or Punishment Styles Refined */
+.turn-indicator {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.role-badge {
+    background: var(--passion-red);
+    color: white;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+    display: inline-block;
+}
+
+.card-style {
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 117, 140, 0.2);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    line-height: 1.4;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.verification-area {
+    background: var(--soft-pink);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.verification-area p {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.verify-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-yes {
+    background: #2ecc71;
+    color: white;
+}
+
+.btn-no {
+    background: var(--passion-red);
+    color: white;
+}
+
+.main-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.punish-btn {
+    background: var(--text-dark) !important;
+}
+
+@media (max-width: 600px) {
+    .main-actions {
+        flex-direction: column;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .game-area {
+        padding: 1.5rem;
+    }
+
+    .dice-box {
+        gap: 1rem;
+    }
+
+    .die {
+        width: 100px;
+        height: 100px;
+        font-size: 1rem;
+    }
+}
+
+.dice-who {
+    margin-top: 0.5rem;
+    font-weight: 800;
+    color: var(--white);
+    background: var(--passion-red);
+    padding: 0.3rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(214, 48, 49, 0.2);
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   MEJORAS: intensidad, ajustes, timer, Jenga y Durazno
+   ============================================================ */
+
+/* --- Selector de intensidad --- */
+.intensity-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+.intensity-label {
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-right: 0.2rem;
+}
+
+.int-chip {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--glass-border);
+    color: var(--white);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.int-chip:hover { background: rgba(255, 255, 255, 0.4); }
+
+.int-chip.active {
+    background: var(--white);
+    color: var(--primary-red);
+    box-shadow: 0 4px 14px rgba(214, 48, 49, 0.3);
+}
+
+/* --- Modal de Ajustes --- */
+.setup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 52, 54, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1.5rem;
+}
+
+.setup-modal {
+    background: var(--white);
+    border-radius: 28px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.setup-modal h3 {
+    font-family: var(--font-title);
+    color: var(--primary-red);
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.setup-modal .int-chip {
+    background: #fff0f3;
+    border-color: var(--soft-pink);
+    color: var(--primary-red);
+}
+
+.setup-modal .int-chip.active { background: var(--passion-red); color: var(--white); }
+
+.setup-intensity { margin: 1rem 0 1.5rem; }
+.setup-intensity > span { display: block; font-weight: 600; margin-bottom: 0.6rem; color: var(--text-dark); }
+
+/* --- Campos de texto (ajustes + promesas) --- */
+.promise-form { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; width: 100%; max-width: 460px; }
+
+.promise-field { display: flex; flex-direction: column; gap: 0.4rem; text-align: left; }
+.promise-field span { font-weight: 600; color: var(--text-dark); font-size: 0.95rem; }
+
+.promise-field input {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--soft-pink);
+    border-radius: 14px;
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.promise-field input:focus { border-color: var(--passion-red); }
+
+/* --- Temporizador circular reutilizable --- */
+.pp-timer { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin: 1.2rem 0; }
+
+.pp-timer-circle {
+    width: 110px;
+    height: 110px;
+    border: 5px solid var(--text-dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pp-timer-label { font-size: 1.6rem; font-weight: 800; color: var(--text-dark); }
+.pp-timer-controls { display: flex; gap: 1rem; }
+
+.pp-timer-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid var(--text-dark);
+    background: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pp-timer-btn:hover { background: var(--soft-pink); }
+
+/* ============================================================
+   JENGA PICANTE  (torre 3D)
+   ============================================================ */
+.jenga-area { overflow: hidden; }
+
+.jenga-risk { width: 100%; max-width: 320px; margin: 0.5rem auto 0; }
+
+.jenga-risk-bar {
+    height: 12px;
+    background: #ffe3e9;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#jenga-risk-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #2ecc71, #f1c40f, #e74c3c);
+    transition: width 0.4s ease;
+}
+
+#jenga-risk-label { display: block; margin-top: 0.4rem; font-weight: 700; color: var(--text-dark); font-size: 0.9rem; }
+
+.jenga-stage {
+    width: 100%;
+    height: 520px;
+    perspective: 1300px;
+    perspective-origin: 50% 42%;
+    margin: 1rem 0;
+    touch-action: none;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jenga-stage:active { cursor: grabbing; }
+
+.jenga-tower {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.08s linear;
+}
+
+.j-piece { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; }
+
+.j-box { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; }
+
+.j-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: linear-gradient(160deg, #e9b870, #c8893f);
+    border: 1px solid #a96d2c;
+    box-shadow: inset 0 0 8px rgba(120, 70, 20, 0.35);
+    transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+/* Ficha resaltada según el turno: azul (jugador 1) / rosa (jugador 2) */
+.j-piece.hot-p1 .j-face {
+    border-color: #2f6bff;
+    box-shadow: inset 0 0 12px rgba(47, 107, 255, 0.45), 0 0 0 2px #2f6bff;
+    background: linear-gradient(160deg, #f2cd8e, #d89b53);
+}
+
+.j-piece.hot-p2 .j-face {
+    border-color: #ff3d8b;
+    box-shadow: inset 0 0 12px rgba(255, 61, 139, 0.45), 0 0 0 2px #ff3d8b;
+    background: linear-gradient(160deg, #f2cd8e, #d89b53);
+}
+
+.jenga-hint { color: var(--text-dark); opacity: 0.7; font-size: 0.9rem; margin-top: 0.3rem; }
+.jenga-hint i { width: 16px; height: 16px; vertical-align: middle; }
+
+.jenga-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 1rem auto 0;
+    background: #fff5f6;
+    border: 2px solid var(--soft-pink);
+    border-radius: 22px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    animation: pop 0.35s ease;
+}
+
+.jenga-card-tag {
+    display: inline-block;
+    padding: 0.35rem 1.1rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    background: var(--passion-red);
+    margin-bottom: 1rem;
+}
+
+.jenga-card-tag.lvl-suave { background: #2ecc71; }
+.jenga-card-tag.lvl-picante { background: var(--passion-red); }
+.jenga-card-tag.lvl-extremo { background: var(--text-dark); }
+
+#jenga-card-text { font-size: 1.25rem; line-height: 1.4; color: var(--text-dark); font-weight: 600; margin-bottom: 1rem; }
+
+/* ============================================================
+   CARRERA DEL DURAZNO  (tablero con la paleta de la app)
+   ============================================================ */
+.durazno-scene {
+    background: #fff5f6;
+    border: 1px solid rgba(255, 117, 140, 0.25);
+    border-radius: 32px;
+    padding: 1.2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.durazno-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.durazno-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.9rem;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    min-width: 90px;
+}
+
+.durazno-player.active {
+    border-color: var(--primary-pink);
+    background: var(--white);
+    box-shadow: 0 6px 18px rgba(255, 117, 140, 0.3);
+}
+
+.dp-name { font-weight: 800; }
+.dp-pos { font-size: 0.85rem; color: var(--primary-red); font-weight: 700; }
+.durazno-turn { font-weight: 700; color: var(--primary-red); }
+
+/* Layout: 8 mazos a la izquierda + tablero */
+.durazno-main {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.durazno-decks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    width: 132px;
+    padding-top: 0.3rem;
+}
+
+.d-deck {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.6rem;
+    background: var(--white);
+    border-radius: 12px;
+    border-left: 6px solid var(--passion-red);
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.06), 6px 6px 0 rgba(0, 0, 0, 0.04), 0 6px 14px rgba(0, 0, 0, 0.1);
+    transition: transform 0.18s;
+}
+
+.d-deck-emoji { font-size: 1.2rem; }
+.d-deck-name { font-size: 0.72rem; font-weight: 800; color: var(--text-dark); flex: 1; line-height: 1.1; }
+.d-deck-count {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--primary-red);
+    background: #fff0f3;
+    border-radius: 50px;
+    padding: 0.1rem 0.45rem;
+    min-width: 22px;
+    text-align: center;
+}
+
+.d-deck.drawing { animation: deckPop 0.4s; }
+@keyframes deckPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.12) translateX(4px); }
+    100% { transform: scale(1); }
+}
+
+.cat-reto.d-deck       { border-left-color: #ff5e5e; }
+.cat-pregunta.d-deck   { border-left-color: var(--primary-pink); }
+.cat-bonus.d-deck      { border-left-color: #f0a72b; }
+.cat-castigo.d-deck    { border-left-color: #b056c9; }
+.cat-penitencia.d-deck { border-left-color: #ff7a3d; }
+.cat-salvacion.d-deck  { border-left-color: #2bb673; }
+.cat-escudo.d-deck     { border-left-color: #3f9fd6; }
+.cat-promesa.d-deck    { border-left-color: var(--primary-red); }
+
+.durazno-board {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+.durazno-leaf {
+    position: absolute;
+    top: 17%;
+    left: 54%;
+    font-size: 1.5rem;
+    transform: rotate(18deg);
+    z-index: 1;
+}
+
+/* Casillas grandes con relieve (no planas), coloreadas por categoría */
+.d-cell {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: radial-gradient(circle at 35% 28%, #ffffff, #ffe7ee 75%);
+    border: 3px solid var(--soft-pink);
+    box-shadow: 0 5px 0 rgba(214, 48, 49, 0.18), 0 9px 16px rgba(0, 0, 0, 0.18);
+    z-index: 2;
+}
+
+.d-reto       { border-color: #ff5e5e; background: radial-gradient(circle at 35% 28%, #fff, #ffd9d9 80%); box-shadow: 0 5px 0 rgba(255,94,94,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-pregunta   { border-color: #ff7fb0; background: radial-gradient(circle at 35% 28%, #fff, #ffd9e8 80%); box-shadow: 0 5px 0 rgba(255,127,176,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-bonus      { border-color: #ffbf3d; background: radial-gradient(circle at 35% 28%, #fff, #ffeec2 80%); box-shadow: 0 5px 0 rgba(240,167,43,.35), 0 9px 16px rgba(0,0,0,.18); }
+.d-castigo    { border-color: #b056c9; background: radial-gradient(circle at 35% 28%, #fff, #eed3f5 80%); box-shadow: 0 5px 0 rgba(176,86,201,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-penitencia { border-color: #ff7a3d; background: radial-gradient(circle at 35% 28%, #fff, #ffe0cc 80%); box-shadow: 0 5px 0 rgba(255,122,61,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-salvacion  { border-color: #2bb673; background: radial-gradient(circle at 35% 28%, #fff, #ccf2e0 80%); box-shadow: 0 5px 0 rgba(43,182,115,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-escudo     { border-color: #3f9fd6; background: radial-gradient(circle at 35% 28%, #fff, #d2ebfa 80%); box-shadow: 0 5px 0 rgba(63,159,214,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-promesa    { border-color: var(--primary-red); background: radial-gradient(circle at 35% 28%, #fff, #ffd9e0 80%); box-shadow: 0 5px 0 rgba(214,48,49,.3), 0 9px 16px rgba(0,0,0,.18); }
+.d-salida     { border-color: var(--text-dark); background: radial-gradient(circle at 35% 28%, #fff, #e6e8ea 80%); box-shadow: 0 5px 0 rgba(45,52,54,.3), 0 9px 16px rgba(0,0,0,.18); }
+
+/* Centro: dado de 6 puntos + botón de tirar */
+.durazno-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    z-index: 3;
+}
+
+.durazno-dice {
+    width: 74px;
+    height: 74px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(214, 48, 49, 0.25), inset 0 0 0 3px var(--soft-pink);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 12px;
+    gap: 3px;
+}
+
+.durazno-dice .pip { border-radius: 50%; }
+.durazno-dice .pip.on { background: var(--primary-red); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+.durazno-dice.rolling { animation: diceShake 0.18s infinite; }
+
+@keyframes diceShake {
+    0% { transform: rotate(-9deg) scale(1.03); }
+    50% { transform: rotate(9deg) scale(0.97); }
+    100% { transform: rotate(-9deg) scale(1.03); }
+}
+
+.durazno-roll { margin-top: 0; padding: 0.7rem 1.8rem; font-size: 1rem; }
+
+/* Fichas: berenjena y durazno */
+.d-token {
+    position: absolute;
+    font-size: 1.8rem;
+    z-index: 5;
+    transform: translate(-50%, -85%);
+    transition: left 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.3));
+    pointer-events: none;
+}
+
+.d-token-1 { transform: translate(-50%, -85%) translateX(15px); }
+.d-token.shielded { filter: drop-shadow(0 0 9px #46c98a); }
+
+/* Modal de carta: aparece como "sacada de la mesa" */
+.d-modal {
+    position: absolute;
+    inset: 0;
+    background: rgba(45, 52, 54, 0.45);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    z-index: 20;
+    padding: 1rem;
+}
+
+.d-card {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 340px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    transform-origin: center 75%;
+    animation: dealCard 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+
+@keyframes dealCard {
+    0%   { transform: translateY(70px) scale(0.25) rotate(-16deg); opacity: 0; }
+    60%  { opacity: 1; }
+    100% { transform: translateY(0) scale(1) rotate(0); opacity: 1; }
+}
+
+.d-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.9rem;
+    color: var(--white);
+    background: var(--passion-red);
+}
+
+.d-badge { font-size: 1.4rem; }
+.d-cat { font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-size: 0.95rem; }
+
+.d-text {
+    font-size: 1.2rem;
+    line-height: 1.45;
+    color: var(--text-dark);
+    font-weight: 600;
+    white-space: pre-line;
+    padding: 1.4rem 1.3rem 0.4rem;
+}
+
+.d-continue { margin: 1rem auto 1.4rem; }
+
+/* Un diseño de cabecera por cada motivo de carta */
+.cat-reto       .d-card-head { background: #ff5e5e; }
+.cat-pregunta   .d-card-head { background: var(--primary-pink); }
+.cat-bonus      .d-card-head { background: #f0a72b; }
+.cat-castigo    .d-card-head { background: #b056c9; }
+.cat-penitencia .d-card-head { background: #ff7a3d; }
+.cat-salvacion  .d-card-head { background: #2bb673; }
+.cat-escudo     .d-card-head { background: #3f9fd6; }
+.cat-promesa    .d-card-head { background: var(--primary-red); }
+.cat-salida     .d-card-head { background: var(--text-dark); }
+
+/* Feedback al responder en Preguntas Picantes */
+.action-btn.picked { transform: scale(1.12); filter: brightness(1.05); }
+
+/* --- Accesibilidad: respeta usuarios con sensibilidad al movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+    .roulette-wheel { transition: transform 1.2s ease-out !important; }
+    .heart-icon, .particle, .die.rolling, .durazno-dice.rolling { animation: none !important; }
+    .jenga-tower { transition: none !important; }
+    .d-card { animation: none !important; }
+}
+
+@media (max-width: 760px) {
+    .durazno-main { flex-direction: column; align-items: center; }
+    .durazno-decks {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .d-deck { flex: 0 0 auto; width: auto; }
+    .d-deck-name { display: none; }
+}
+
+@media (max-width: 600px) {
+    .jenga-stage { height: 430px; perspective: 1000px; }
+    .durazno-board { max-width: 340px; }
+    .d-cell { width: 40px; height: 40px; margin: -20px 0 0 -20px; font-size: 1.15rem; }
+    .durazno-dice { width: 64px; height: 64px; padding: 10px; }
+    .d-token { font-size: 1.55rem; }
+}
