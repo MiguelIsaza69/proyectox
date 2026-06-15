@@ -1736,7 +1736,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const BOARD_PX = 1800;         // tablero muy grande (la cámara hace zoom): casillas enormes y separadas
         const FOCUS_ZOOM = 0.95;       // acercamiento al seguir la ficha
         const PIPS = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
-        let steps, turn, shields, promises, busy, finished, tokens, modal, dCard, coords, lastRoll = 0;
+        let steps, turn, shields, promises, busy, finished, tokens, modal, dCard, coords;
 
         // 8 mazos finitos (uno por categoría) que se ven a la izquierda y bajan al sacar
         const DECK_CATS = ['reto', 'pregunta', 'penitencia', 'castigo', 'bonus', 'salvacion', 'escudo', 'promesa'];
@@ -1913,7 +1913,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function endTurn() {
-            if (lastRoll !== 6) turn = turn === 0 ? 1 : 0;   // sacar 6 = repite turno (como en Parchís)
+            turn = turn === 0 ? 1 : 0;   // el turno SIEMPRE pasa al otro jugador
             updateHud();
             fitBoard();      // entre turnos se ve todo el tablero
             busy = false;
@@ -1964,7 +1964,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (busy || finished) return;
             busy = true;
             const d = 1 + Math.floor(Math.random() * 6);   // dado de 6
-            lastRoll = d;
             animateDice(d, () => {
                 // Secuencia: 1) se ve el resultado, 2) la ficha avanza casilla por casilla, 3) sale la carta
                 setTimeout(() => {

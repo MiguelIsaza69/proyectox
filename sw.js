@@ -1,7 +1,7 @@
 /* Service Worker · Pasión en Pareja
    Sube el número de versión (pp-vN) cada vez que cambies archivos
    para que los usuarios reciban la actualización. */
-const CACHE = 'pp-v2';
+const CACHE = 'pp-v3';
 const CORE = ['./', './index.html', './style.css', './script.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', (e) => {
