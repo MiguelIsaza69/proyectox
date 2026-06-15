@@ -962,7 +962,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bonus: { label: 'Bonus', emoji: '⭐' },
         salvacion: { label: 'Salvación', emoji: '🍀' },
         escudo: { label: 'Escudo', emoji: '🛡️' },
-        promesa: { label: 'Promesa', emoji: '🤞' }
+        promesa: { label: 'Promesa', emoji: '🤞' },
+        resultado: { label: 'Resultado', emoji: '🏆' }
     };
     const DURAZNO_CARDS = {
         reto: [
@@ -1721,6 +1722,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const scene = document.getElementById('durazno-scene');
         const startBtn = document.getElementById('durazno-start');
         const boardEl = document.getElementById('durazno-board');
+        const viewport = document.getElementById('durazno-viewport');
+        const stageEl = document.getElementById('durazno-stage');
+        const diceEl = document.getElementById('durazno-dice');
+        const rollBtn = document.getElementById('durazno-roll');
         const turnEl = document.getElementById('durazno-turn');
         const p1El = document.getElementById('durazno-p1');
         const p2El = document.getElementById('durazno-p2');
@@ -1728,8 +1733,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const in2 = document.getElementById('promise-2');
 
         const LEN = DURAZNO_BOARD.length;
+        const BOARD_PX = 1800;         // tablero muy grande (la cámara hace zoom): casillas enormes y separadas
+        const FOCUS_ZOOM = 0.95;       // acercamiento al seguir la ficha
         const PIPS = { 1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
-        let steps, turn, shields, promises, busy, finished, tokens, modal, dCard, diceEl, rollBtn, coords;
+        let steps, turn, shields, promises, busy, finished, tokens, modal, dCard, coords, lastRoll = 0;
 
         // 8 mazos finitos (uno por categoría) que se ven a la izquierda y bajan al sacar
         const DECK_CATS = ['reto', 'pregunta', 'penitencia', 'castigo', 'bonus', 'salvacion', 'escudo', 'promesa'];
@@ -1745,7 +1752,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const d = document.createElement('div');
                 d.className = 'd-deck cat-' + cat;
                 d.dataset.cat = cat;
-                d.innerHTML = `<span class="d-deck-emoji">${meta.emoji}</span><span class="d-deck-name">${meta.label}</span><span class="d-deck-count">${deckPiles[cat].length}</span>`;
+                d.innerHTML = `<span class="d-deck-name">${meta.label}</span><span class="d-deck-count">${deckPiles[cat].length}</span>`;
                 decksEl.appendChild(d);
             });
         }
@@ -1774,9 +1781,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const a = (i / n) * Math.PI * 2;          // 0 = arriba, sentido horario
                 const top = Math.max(0, Math.cos(a));     // 1 arriba
                 const bot = Math.max(0, -Math.cos(a));    // 1 abajo
-                const rx = 42 * (1 - 0.16 * bot * bot);   // se afila abajo
-                const x = 50 + rx * Math.sin(a) * (1 - 0.30 * Math.pow(top, 4)); // pellizco en la hendidura
-                const y = 48 - 42 * Math.cos(a) + 18 * Math.pow(top, 3);         // hendidura del durazno
+                const rx = 45 * (1 - 0.08 * bot * bot);   // ligera punta abajo
+                const x = 50 + rx * Math.sin(a) * (1 - 0.10 * Math.pow(top, 4)); // leve hendidura arriba (separación pareja)
+                const y = 48 - 45 * Math.cos(a) + 8 * Math.pow(top, 3);          // durazno suave
                 pts.push({ x, y });
             }
             return pts;
@@ -1793,28 +1800,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function buildBoard() {
             coords = peachCoords(LEN);
-            boardEl.innerHTML = '<div class="durazno-leaf">🍃</div>';
+            boardEl.style.width = BOARD_PX + 'px';
+            boardEl.style.height = BOARD_PX + 'px';
+            boardEl.innerHTML = '<div class="durazno-center-deco">🍑</div>';
             DURAZNO_BOARD.forEach((c, i) => {
                 const meta = DURAZNO_META[c.cat];
                 const cell = document.createElement('div');
                 cell.className = 'd-cell d-' + c.cat;
                 cell.style.left = coords[i].x + '%';
                 cell.style.top = coords[i].y + '%';
-                cell.style.zIndex = i + 2;   // se solapan formando una pista continua
                 cell.innerHTML = `<span class="d-emoji">${meta.emoji}</span>`;
                 cell.title = meta.label;
                 boardEl.appendChild(cell);
             });
-            // Centro: dado de 6 puntos + botón de tirar
-            const center = document.createElement('div');
-            center.className = 'durazno-center';
-            center.innerHTML = `<div class="durazno-dice"></div><button class="spin-btn durazno-roll" type="button">TIRAR</button>`;
-            boardEl.appendChild(center);
-            diceEl = center.querySelector('.durazno-dice');
-            rollBtn = center.querySelector('.durazno-roll');
-            rollBtn.addEventListener('click', roll);
-            renderDie(1);
-            // Fichas: berenjena y durazno
+            // Fichas: berenjena y durazno (siempre por encima de las casillas)
             tokens = [0, 1].map(i => {
                 const t = document.createElement('div');
                 t.className = 'd-token d-token-' + i;
@@ -1822,14 +1821,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 boardEl.appendChild(t);
                 return t;
             });
-            // Modal de carta (se rellena por categoría)
-            modal = document.createElement('div');
-            modal.className = 'd-modal';
-            modal.style.display = 'none';
-            modal.innerHTML = '<div class="d-card"></div>';
-            boardEl.appendChild(modal);
-            dCard = modal.querySelector('.d-card');
             placeToken(0); placeToken(1);
+            fitBoard();
         }
 
         function placeToken(i) {
@@ -1837,6 +1830,22 @@ document.addEventListener('DOMContentLoaded', () => {
             tokens[i].style.left = coords[idx].x + '%';
             tokens[i].style.top = coords[idx].y + '%';
             tokens[i].classList.toggle('shielded', shields[i]);
+        }
+
+        // --- Cámara: encuadra todo el tablero o sigue a la ficha activa con zoom ---
+        function setCam(tx, ty, zoom) {
+            boardEl.style.transform = `translate(${tx}px, ${ty}px) scale(${zoom})`;
+        }
+        function fitBoard() {
+            const vw = viewport.clientWidth, vh = viewport.clientHeight;
+            const zoom = Math.min(vw / BOARD_PX, vh / BOARD_PX) * 0.96;
+            setCam((vw - BOARD_PX * zoom) / 2, (vh - BOARD_PX * zoom) / 2, zoom);
+        }
+        function focusToken(i, zoom) {
+            const idx = ((steps[i] % LEN) + LEN) % LEN;
+            const vw = viewport.clientWidth, vh = viewport.clientHeight;
+            setCam(vw / 2 - (coords[idx].x / 100) * BOARD_PX * zoom,
+                   vh / 2 - (coords[idx].y / 100) * BOARD_PX * zoom, zoom);
         }
         function updateHud() {
             p1El.querySelector('.dp-pos').textContent = `${Math.min(steps[0], LEN)}/${LEN}`;
@@ -1878,7 +1887,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const meta = DURAZNO_META[cat] || { label: '', emoji: '' };
             dCard.className = 'd-card cat-' + cat;
             dCard.innerHTML =
-                `<div class="d-card-head"><span class="d-badge">${meta.emoji}</span><span class="d-cat">${meta.label}</span></div>` +
+                `<div class="d-card-head"><span class="d-cat">${meta.label}</span></div>` +
                 `<p class="d-text">${text}</p>` +
                 `<button class="spin-btn d-continue" type="button">CONTINUAR</button>`;
             dCard.style.animation = 'none'; void dCard.offsetWidth; dCard.style.animation = '';
@@ -1889,34 +1898,63 @@ document.addEventListener('DOMContentLoaded', () => {
         function finish(winner) {
             finished = true; busy = true; updateHud();
             const loser = winner === 0 ? 1 : 0;
-            showModal('promesa', `🏆 ¡${name(winner)} ganó la carrera!\n\n${name(loser)} debe cumplir su promesa:\n“${promises[loser]}”`, () => {
-                setup.style.display = 'block';
-                scene.style.display = 'none';
-            });
+            const wEmoji = winner === 0 ? '🍆' : '🍑';
+            const lEmoji = loser === 0 ? '🍆' : '🍑';
+            const promesa = (promises[loser] && promises[loser].trim())
+                ? `“${promises[loser]}”`
+                : '(no escribió su promesa al inicio)';
+            showModal('resultado',
+                `🏆 ¡${wEmoji} ${name(winner)} dio la vuelta completa y GANÓ la carrera!\n\n` +
+                `${lEmoji} ${name(loser)} pierde y debe cumplir lo que prometió:\n\n${promesa}`,
+                () => {
+                    setup.style.display = 'block';
+                    scene.style.display = 'none';
+                });
+        }
+
+        function endTurn() {
+            if (lastRoll !== 6) turn = turn === 0 ? 1 : 0;   // sacar 6 = repite turno (como en Parchís)
+            updateHud();
+            fitBoard();      // entre turnos se ve todo el tablero
+            busy = false;
+        }
+
+        // Mueve la ficha del turno casilla por casilla (la cámara la sigue con zoom)
+        function hopBy(n, done) {
+            const dir = n > 0 ? 1 : -1;
+            let left = Math.abs(n);
+            const step = () => {
+                if (left <= 0) { updateHud(); return done(); }
+                steps[turn] = Math.max(0, steps[turn] + dir);
+                placeToken(turn); updateHud();
+                focusToken(turn, FOCUS_ZOOM);
+                left--;
+                setTimeout(step, 280);
+            };
+            step();
         }
 
         function applyAndAdvance(cat, card) {
             let msg = card ? card.text : '';
-            if (cat === 'bonus') steps[turn] += (card.move || 0);
+            let delta = 0;
+            if (cat === 'bonus') delta = card.move || 0;
             else if (cat === 'castigo') {
                 if (shields[turn]) { shields[turn] = false; msg += '\n\n🛡️ ¡Tu escudo te salvó del retroceso!'; }
-                else steps[turn] = Math.max(0, steps[turn] + (card.move || 0));
+                else delta = card.move || 0;
             } else if (card && card.shield) shields[turn] = true;
 
             showModal(cat, msg, () => {
-                placeToken(turn); updateHud();
-                if (steps[turn] >= LEN) return finish(turn);
-                turn = turn === 0 ? 1 : 0;
-                updateHud();
-                busy = false;
+                const after = () => {
+                    if (steps[turn] >= LEN) return finish(turn);
+                    endTurn();
+                };
+                if (delta !== 0) hopBy(delta, after); else after();   // los bonus/castigos también se mueven casilla por casilla
             });
         }
 
         function drawCardFor(cat) {
             if (cat === 'salida') {
-                showModal('salida', '¡Casilla de salida! Respira hondo y sigue la carrera.', () => {
-                    turn = turn === 0 ? 1 : 0; updateHud(); busy = false;
-                });
+                showModal('salida', '¡Casilla de salida! Respira hondo y sigue la carrera.', endTurn);
                 return;
             }
             applyAndAdvance(cat, drawFrom(cat));
@@ -1926,14 +1964,28 @@ document.addEventListener('DOMContentLoaded', () => {
             if (busy || finished) return;
             busy = true;
             const d = 1 + Math.floor(Math.random() * 6);   // dado de 6
+            lastRoll = d;
             animateDice(d, () => {
-                steps[turn] += d;
-                placeToken(turn); updateHud();
-                if (steps[turn] >= LEN) return finish(turn);
-                drawCardFor(DURAZNO_BOARD[steps[turn] % LEN].cat);
+                // Secuencia: 1) se ve el resultado, 2) la ficha avanza casilla por casilla, 3) sale la carta
+                setTimeout(() => {
+                    hopBy(d, () => {
+                        if (steps[turn] >= LEN) return finish(turn);
+                        drawCardFor(DURAZNO_BOARD[steps[turn] % LEN].cat);
+                    });
+                }, 600);
             });
         }
 
+        // Modal de carta: una sola vez y FUERA del tablero, para que no se mueva con la cámara
+        modal = document.createElement('div');
+        modal.className = 'd-modal';
+        modal.style.display = 'none';
+        modal.innerHTML = '<div class="d-card"></div>';
+        stageEl.appendChild(modal);
+        dCard = modal.querySelector('.d-card');
+
+        renderDie(1);
+        rollBtn.addEventListener('click', roll);
         in1.value = ''; in2.value = '';
         startBtn.addEventListener('click', start);
     }
