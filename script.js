@@ -534,16 +534,16 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "<player1>, si pudieras obligar a <player2> a quitarse una prenda ahora, ¿cuál elegirías?", roles: true },
             { text: "¿<player1> qué es lo que más te está tentando de <player2> en este momento?", roles: true },
             { text: "<player1>, susúrrale a <player2> algo que quieras hacerle cuando termine este juego.", roles: true },
-            { text: "¿<player1> te gustaría que <player2> te vendara los ojos en la siguiente ronda?", roles: true },
+            { text: "¿<player1> te gustaría que <player2> te vendara los ojos en las siguientes 5 rondas?", roles: true },
             { text: "<player1>, dale un beso a <player2> en el lugar más sensible que conozcas de su cuerpo.", roles: true },
             { text: "¿<player1> cuál es la fantasía que más te gustaría cumplir con <player2> hoy?", roles: true },
             { text: "<player1>, describe con tres palabras cómo te hace sentir el contacto de <player2>.", roles: true },
             { text: "¿<player1> preferirías que <player2> fuera lento o rápido en lo que sigue?", roles: true },
             { text: "<player1>, toca a <player2> en su zona favorita por 10 segundos.", roles: true },
-            { text: "¿<player1>, qué parte de <player2> morderías ahora mismo?", roles: true },
+            { text: "¿<player1>, qué parte de <player2> morderías ahora mismo? Muérdela.", roles: true },
             { text: "<player1>, confiesa a <player2> un pensamiento impuro que hayas tenido hoy.", roles: true },
             { text: "¿<player1>, te gusta cuando <player2> te mira fijamente a los ojos?", roles: true },
-            { text: "<player1>, dale un masaje rápido en los hombros a <player2>.", roles: true },
+            { text: "<player1>, dale un masaje en los hombros a <player2>.", roles: true },
             { text: "¿<player1>, qué posición de las que vimos te gustaría probar primero con <player2>?", roles: true },
             { text: "<player1>, quítale un zapato o calcetín a <player2> de forma lenta.", roles: true },
             { text: "¿<player1>, qué sonido hace <player2> que más te excita?", roles: true },
@@ -596,15 +596,15 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "<player1>, dale un beso apasionado de 30 segundos a <player2>.", roles: true }
         ],
         dares: [
-            "Dale un masaje de 5 minutos en los pies a tu pareja.",
-            "Susúrrale tres fantasías prohibidas al oído durante 1 minuto.",
-            "Realiza un striptease lento quitándote 3 prendas en menos de 2 minutos.",
+            "Dale un masaje de 3 minutos en los pies a tu pareja.",
+            "Susúrrale tres fantasías prohibidas al oído.",
+            "Realiza un striptease lento quitándote 3 prendas.",
             "Quítale la ropa interior a tu pareja usando solo los dientes 1 sola vez.",
             "Dale 10 besos húmedos en el cuello.",
             "Imita tu posición sexual favorita sin tocar a tu pareja por 30 segundos.",
             "Escribe tu nombre en el pecho de tu pareja con la lengua durante 1 minuto.",
             "Usa un hielo y recórrele toda la espalda hasta las nalgas 3 veces seguidas.",
-            "Muerde suavemente el lóbulo de la oreja de tu pareja por 20 segundos.",
+            "Muerde suavemente el lóbulo de la oreja de tu pareja.",
             "Véndale los ojos a tu pareja y dale de comer 5 bocados de forma sensual.",
             "Haz un baile erótico en el regazo de tu pareja (Lap dance) por 3 minutos.",
             "Acaricia la zona íntima de tu pareja por encima de la ropa por 2 minutos.",
@@ -616,11 +616,11 @@ document.addEventListener('DOMContentLoaded', () => {
             "Quédate en ropa interior por las próximas 3 rondas del juego.",
             "Dale 2 besos en cada parte del cuerpo que tu pareja elija.",
             "Gime el nombre de tu pareja al oído 5 veces de forma muy excitante.",
-            "Dibuja 2 corazones en el muslo de tu pareja con tus labios.",
+            "Dibuja 2 corazones en el muslo de tu pareja dándole besos.",
             "Deja que tu pareja te de 10 nalgadas suaves.",
             "Bebe 3 tragos de alguna bebida directamente del ombligo de tu pareja.",
             "Quítate 1 prenda de ropa de la parte inferior ahora mismo.",
-            "Muerde suavemente los hombros de tu pareja 5 veces en cada lado.",
+            "Muerde suavemente el pecho de tu pareja 5 veces en cada lado.",
             "Unta algo dulce en el cuello de tu pareja y quítalo con la lengua por 1 minuto.",
             "Dale 10 besos en el interior de los muslos a tu pareja.",
             "Seduce a tu pareja como si fuera un desconocido durante 3 minutos.",
@@ -629,8 +629,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "Menciona 3 posiciones de la ruleta que quieras hacer hoy.",
             "Pasa tu lengua por los labios de tu pareja 10 veces sin llegar a besarla.",
             "Abrocha y desabrocha su prenda 5 veces seguidas.",
-            "Lleva a tu pareja al borde usando solo tus manos por 60 segundos.",
-            "Deja que tu pareja te toque donde quiera por 2 minutos constantes.",
+            "Lleva a tu pareja al borde del placer usando solo tus manos por 60 segundos.",
+            "Deja que tu pareja te toque donde quiera por 3 minutos constantes sin poder negarte.",
             "Simula un orgasmo ruidoso durante 30 segundos seguidos.",
             "Recorre con tus dedos desde su rodilla hasta su zona íntima 5 veces.",
             "Quítale ambos calcetines a tu pareja con la boca en menos de 1 minuto.",
@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Ponte su ropa interior sobre la tuya por las próximas 2 rondas.",
             "Deja que tu pareja te haga cosquillas por 45 segundos sin moverte.",
             "Haz un sonido de animal cada vez que te toque durante los próximos 2 minutos.",
-            "Lame el dedo gordo del pie de tu pareja durante 30 segundos.",
+            "Solo lame su zona íntima durante 50 segundos.",
             "Quítate los pantalones y permanece así por los próximos 15 minutos.",
             "Deja que tu pareja te use como silla humana por 2 minutos.",
             "Dale 5 besos lentos en cada uno de sus dedos de los pies.",
@@ -658,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "Intenta excitar a tu pareja usando solo tus pies por 3 minutos.",
             "Dale 5 besos en la frente, 5 en la nariz y 5 en los labios.",
             "Muerde su labio superior suavemente 10 veces seguidas.",
-            "Sigue todas las órdenes de tu pareja por los próximos 5 minutos.",
+            "Sigue todas las órdenes de tu pareja por los próximos 10 minutos.",
             "Revela 2 cosas que nunca te has atrevido a pedir en la cama.",
             "Haz de almohada humana para tu pareja durante 3 minutos seguidos.",
             "Susúrrale tus planes eróticos detallados para esta noche por 2 minutos.",
@@ -726,15 +726,15 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "Cámara Lenta", icon: "timer", desc: "Durante los próximos 5 minutos, cada beso, caricia y movimiento debe ser a cámara lenta." },
             { text: "Solo Palabras", icon: "mic", desc: "No pueden tocarse. Deben describirse con detalle exacto qué le harían al otro ahora mismo." },
             { text: "Cronómetro Erótico", icon: "watch", desc: "3 minutos para excitar al máximo a tu pareja sin tocar sus zonas genitales. Luego cambian." },
-            { text: "Poner a 100", icon: "flame", desc: "Lleva a tu pareja al borde del clímax usando solo tus manos y boca, pero prohíbe el final hasta que yo diga." },
+            { text: "Poner a 100", icon: "flame", desc: "Lleva a tu pareja al borde del clímax usando solo tus manos y boca, pero prohíbe el final hasta que te ruegue por él." },
             { text: "Mapa del Placer", icon: "map", desc: "Usa tus dedos para dibujar un mapa invisible en su cuerpo, descubriendo 3 puntos nuevos de placer." },
-            { text: "El Observador", icon: "eye", desc: "Uno de ustedes debe estimularse mientras el otro observa a pocos centímetros sin poder intervenir." },
+            { text: "El Observador", icon: "eye", desc: "Uno de ustedes debe estimularse mientras el otro observa a pocos centímetros sin poder intervenir de ninguna manera." },
             { text: "Masaje Tántrico", icon: "sparkles", desc: "Un masaje de 10 minutos por todo el cuerpo usando aceite, con caricias extremadamente suaves y lentas." },
-            { text: "Edging Extremo", icon: "trending-up", desc: "Lleven el ritmo hasta el límite, deténganse por 30 segundos, y repitan esto 3 veces antes de seguir." },
+            { text: "Edging Extremo", icon: "trending-up", desc: "Lleven el ritmo hasta el límite, deténganse por 30 segundos, y repitan esto 10 veces antes de seguir." },
             { text: "Grabación Hot", icon: "video", desc: "Graba un video corto (30 seg) haciendo algo muy atrevido. Pueden borrarlo después o guardarlo." },
             { text: "Sin Manos", icon: "hand-metal", desc: "Debes dar placer a tu pareja usando solo tu boca, lengua y respiración durante 5 minutos." },
             { text: "Ojos Vendados", icon: "eye-off", desc: "Uno queda a ciegas. El otro usa diferentes texturas (plumas, seda, lengua) para sorprenderlo." },
-            { text: "Esclavo de Placer", icon: "user-check", desc: "Cumple todas las órdenes físicas de tu pareja por los próximos 10 minutos sin rechistar." }
+            { text: "Esclavo de Placer", icon: "user-check", desc: "Cumple todas las órdenes físicas de tu pareja por los próximos 20 minutos sin rechistar." }
         ],
         prohibitions: ["Labios", "Cuello", "Pechos", "Zona Íntima", "Orejas", "Muslos"]
     };
@@ -755,9 +755,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Devuelve [actor, receptor] al azar usando los nombres reales
     const randomPair = () => Math.random() > 0.5 ? [P1(), P2()] : [P2(), P1()];
 
-    // --- Intensidad (Suave / Picante / Extremo) ---
-    state.intensity = localStorage.getItem('pp_intensity') || 'todos';
-    const setIntensity = (v) => { state.intensity = v; localStorage.setItem('pp_intensity', v); };
+    // --- Intensidad: sin filtro. Siempre se usan TODAS las intensidades ---
+    state.intensity = 'todos';
 
     // Clasificador automático por palabras clave (para el contenido sin etiqueta .level)
     const SUAVE_KW = ['suave', 'pausad', 'ternura', 'lento', 'relaj', 'romántic', 'romantic', 'abraz', 'susurr', 'caricia', 'masaje', 'mirada', 'dulce', 'tierno', 'tierna', 'reconfort', 'cómod', 'comod', 'beso en la', 'beso en el', 'beso en cada'];
@@ -918,7 +917,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     //  JUEGO NUEVO: JENGA PICANTE  (retos por ficha, pueden repetirse)
     // ============================================================
+    // 36 retos (los <player1>/<player2> se reemplazan por los nombres reales al jugar).
+    // Balance pensado para "subir la temperatura": más picantes y extremos que suaves.
     const JENGA_CHALLENGES = [
+        // --- SUAVE (8) ---
         { text: "Dale un beso en el cuello a tu pareja.", level: "suave" },
         { text: "Hazle un cumplido muy sincero mirándole a los ojos.", level: "suave" },
         { text: "Dale un masaje de 30 segundos en los hombros.", level: "suave" },
@@ -926,6 +928,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: "Dale un beso en la mano, otro en la mejilla y otro en la frente.", level: "suave" },
         { text: "Acaricia el rostro de tu pareja mientras la miras 15 segundos.", level: "suave" },
         { text: "Dile al oído tu recuerdo favorito juntos.", level: "suave" },
+        { text: "Dale un masaje lento en la nuca mientras le hablas al oído por 1 minuto.", level: "suave" },
+        // --- PICANTE (14) ---
         { text: "Bésame donde yo te diga (tú eliges la zona).", level: "picante" },
         { text: "Siéntate en el regazo de tu pareja por un turno entero.", level: "picante" },
         { text: "Quítate una prenda de tu elección.", level: "picante" },
@@ -935,12 +939,26 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: "Dale 5 nalgadas suaves a tu pareja.", level: "picante" },
         { text: "Imita tu posición favorita encima de tu pareja (con ropa) 15 seg.", level: "picante" },
         { text: "Susúrrale al oído una fantasía rápida que tengas con tu pareja.", level: "picante" },
+        { text: "<player1>, dale a <player2> un masaje sensual por encima de la ropa durante 1 minuto.", level: "picante" },
+        { text: "<player1>, quítale una prenda a <player2> con calma, mirándole a los ojos.", level: "picante" },
+        { text: "<player1>, recórrele a <player2> el cuerpo con los dedos, de los muslos al cuello.", level: "picante" },
+        { text: "<player1>, siéntate sobre <player2> y muévete despacio durante 20 segundos.", level: "picante" },
+        { text: "<player1>, dale a <player2> un beso profundo mientras le sujetas del cabello.", level: "picante" },
+        // --- EXTREMO (14) ---
         { text: "Dale un beso provocativo en cada lado del pecho.", level: "extremo" },
         { text: "Quítale una prenda a tu pareja usando solo la boca.", level: "extremo" },
-        { text: "Haz un baile sensual de 30 segundos en el regazo de tu pareja.", level: "extremo" },
-        { text: "Lleva a tu pareja al borde usando solo tus manos por 30 segundos.", level: "extremo" },
+        { text: "Haz un baile sensual de 60 segundos en el regazo de tu pareja.", level: "extremo" },
+        { text: "Lleva a tu pareja al borde del orgasmo usando solo tus manos por 45 segundos.", level: "extremo" },
         { text: "Confiesa la fantasía más atrevida que quieres probar hoy.", level: "extremo" },
-        { text: "Quédate solo en ropa interior hasta tu próximo turno.", level: "extremo" }
+        { text: "Quédate solo en ropa interior hasta tu próximo turno.", level: "extremo" },
+        { text: "<player1>, tócate mientras <player2> te observa de cerca durante 2 minutos.", level: "extremo" },
+        { text: "<player1>, dale placer oral a <player2> (con o sin ropa) durante 1 minuto.", level: "extremo" },
+        { text: "<player1>, deja que <player2> te dé 3 órdenes atrevidas y cúmplelas.", level: "extremo" },
+        { text: "<player1>, lámele a <player2> el cuerpo desde el ombligo hacia abajo.", level: "extremo" },
+        { text: "<player1>, estimula a <player2> con la boca donde te pida durante 1 minuto.", level: "extremo" },
+        { text: "<player1> y <player2>: bésense con desesperación mientras cada uno se quita una prenda.", level: "extremo" },
+        { text: "<player1>, susúrrale a <player2> al oído lo que le harás esta noche, con detalle.", level: "extremo" },
+        { text: "<player1>, recuéstate y deja que <player2> haga contigo lo que quiera por 1 minuto.", level: "extremo" }
     ];
 
     // ============================================================
@@ -965,46 +983,79 @@ document.addEventListener('DOMContentLoaded', () => {
         promesa: { label: 'Promesa', emoji: '🤞' },
         resultado: { label: 'Resultado', emoji: '🏆' }
     };
+    // 12 cartas por mazo (96 en total). Cartas con sexo: { m: "...", f: "..." }
+    //   m = texto cuando juega el 🍆 hombre (turno 0)  ·  f = cuando juega la 🍑 mujer (turno 1)
+    // Las cartas neutras usan { text: "..." }. Mucho más picante/extremo para subir la presión.
     const DURAZNO_CARDS = {
         reto: [
-            { text: "Dale un beso largo en el cuello a tu pareja.", level: "suave" },
-            { text: "Dale un masaje sensual de 1 minuto.", level: "suave" },
-            { text: "Quítate una prenda ahora mismo.", level: "picante" },
-            { text: "Siéntate en su regazo y susúrrale algo atrevido.", level: "picante" },
-            { text: "Haz un mini baile provocativo de 20 segundos.", level: "extremo" },
-            { text: "Quítale una prenda a tu pareja con los dientes.", level: "extremo" }
+            { text: "Dale un beso largo y lento en el cuello a tu pareja.", level: "suave" },
+            { text: "Dale un masaje sensual a tu pareja durante 3 minutos.", level: "suave" },
+            { text: "Quítate una prenda ahora mismo y déjala caer despacio.", level: "picante" },
+            { text: "Siéntate sobre tu pareja y muévete despacio durante 20 segundos.", level: "picante" },
+            { m: "Pasa tus manos por los pechos de tu pareja por encima de la ropa 20 seg.", f: "Pasa tus manos por el pecho y el abdomen de tu pareja 20 seg.", level: "picante" },
+            { text: "Pasa tu lengua por el cuello y el pecho de tu pareja.", level: "picante" },
+            { text: "Dale a tu pareja un beso profundo mientras le sujetas del cabello.", level: "picante" },
+            { f: "Restriega tus pechos en la cara de tu pareja durante 20 segundos.", m: "Restriega tu pecho desnudo contra el de tu pareja durante 20 segundos.", level: "extremo" },
+            { text: "Quítale una prenda a tu pareja usando solo la boca.", level: "extremo" },
+            { m: "Acaricia entre las piernas de tu pareja hasta que ella te lo pida.", f: "Acaricia entre las piernas de tu pareja hasta que él te lo pida.", level: "extremo" },
+            { text: "Dale placer oral a tu pareja (con o sin ropa) durante 1 minuto.", level: "extremo" },
+            { text: "Lleva a tu pareja al borde usando solo tus manos por 45 segundos.", level: "extremo" }
         ],
         pregunta: [
             { text: "¿Qué fue lo primero que te atrajo de mí?", level: "suave" },
-            { text: "¿Cuál es tu parte favorita de mi cuerpo?", level: "picante" },
-            { text: "¿Dónde te gustaría que te besara ahora mismo?", level: "picante" },
-            { text: "¿Prefieres llevar el control o que yo lo lleve?", level: "picante" },
-            { text: "¿Qué es lo más atrevido que has pensado de mí hoy?", level: "picante" },
-            { text: "¿Qué fantasía te gustaría cumplir conmigo?", level: "extremo" }
+            { text: "¿Cuál es tu recuerdo más tierno conmigo?", level: "suave" },
+            { text: "¿Cuál es tu parte favorita de mi cuerpo? Señálala y bésala.", level: "picante" },
+            { text: "¿Dónde te gustaría que te besara ahora mismo? Hazlo.", level: "picante" },
+            { text: "¿Prefieres llevar el control o que yo lo lleve esta noche?", level: "picante" },
+            { text: "¿Qué es lo más atrevido que has pensado de mí hoy? Descríbelo.", level: "picante" },
+            { text: "¿Qué prenda mía te gustaría arrancarme ahora mismo?", level: "picante" },
+            { text: "¿Qué sonido mío te excita más? Pídeme que lo haga.", level: "picante" },
+            { text: "¿Qué fantasía te mueres por cumplir conmigo? Cuéntala con detalle.", level: "extremo" },
+            { text: "¿Qué te gustaría que te hiciera con la boca? Susúrralo.", level: "extremo" },
+            { text: "¿Cuál es el lugar más atrevido donde te gustaría que lo hiciéramos?", level: "extremo" },
+            { text: "¿Qué orden atrevida me darías ahora mismo? Dímela y la cumplo.", level: "extremo" }
         ],
         penitencia: [
             { text: "Mantén la mirada fija en tu pareja 30 segundos sin reír.", level: "suave" },
-            { text: "Habla solo en susurros durante 2 turnos.", level: "suave" },
-            { text: "No puedes tocar a tu pareja hasta tu próximo turno.", level: "picante" },
-            { text: "Imita tu sonido favorito de placer.", level: "picante" },
-            { text: "Dale 5 besos donde tu pareja elija.", level: "picante" },
-            { text: "Quédate en ropa interior hasta tu próximo turno.", level: "extremo" }
+            { text: "Habla solo en susurros sensuales durante 2 turnos.", level: "suave" },
+            { text: "No puedes tocar a tu pareja hasta tu próximo turno, aunque te provoque.", level: "picante" },
+            { text: "Imita tu sonido favorito de placer durante 10 segundos.", level: "picante" },
+            { text: "Dale 5 besos mojados donde tu pareja elija.", level: "picante" },
+            { m: "Acaricia los pechos de tu pareja hasta que ella te diga basta.", f: "Acaricia el pecho y el abdomen de tu pareja hasta que él te diga basta.", level: "picante" },
+            { text: "Déjale a tu pareja una marca con un beso en el cuello.", level: "picante" },
+            { text: "Quédate en ropa interior toda la partida.", level: "extremo" },
+            { f: "Restriega tus pechos en la cara de tu pareja durante 20 segundos.", m: "Restriega tu pecho desnudo contra la espalda de tu pareja 20 seg.", level: "extremo" },
+            { text: "Dale placer oral a tu pareja durante 30 segundos.", level: "extremo" },
+            { m: "Estimula con la boca los pechos de tu pareja durante 30 segundos.", f: "Estimula con la boca el cuello y el pecho de tu pareja 30 seg.", level: "extremo" },
+            { text: "Deja que tu pareja te use a su antojo durante 1 minuto.", level: "extremo" }
         ],
         castigo: [
-            { text: "¡Retrocede 2! Y dale un beso a tu pareja.", level: "suave", move: -2 },
-            { text: "¡Retrocede 2! Dale un masaje de 1 minuto a tu pareja.", level: "suave", move: -2 },
-            { text: "¡Retrocede 1! Confiesa un antojo atrevido.", level: "picante", move: -1 },
-            { text: "¡Retrocede 2! Recibe 5 nalgadas suaves.", level: "picante", move: -2 },
-            { text: "¡Retrocede 3! Deja que tu pareja te dé una orden.", level: "picante", move: -3 },
-            { text: "¡Retrocede 3! Quítate una prenda.", level: "extremo", move: -3 }
+            { text: "¡Retrocede 2! Dale un beso largo a tu pareja.", level: "suave", move: -2 },
+            { text: "¡Retrocede 2! Dale a tu pareja un masaje en los genitales por 1 minuto.", level: "suave", move: -2 },
+            { text: "¡Retrocede 1! Confiesa un antojo atrevido que tengas ahora.", level: "picante", move: -1 },
+            { text: "¡Retrocede 2! Recibe 5 nalgadas/bofetadas suaves de tu pareja.", level: "picante", move: -2 },
+            { text: "¡Retrocede 3! Deja que tu pareja te dé una orden y cúmplela.", level: "picante", move: -3 },
+            { m: "¡Retrocede 2! Bésale y lámele los pechos a tu pareja 20 seg.", f: "¡Retrocede 2! Bésale y lámele el pecho y el cuello a tu pareja 20 seg.", level: "picante", move: -2 },
+            { text: "¡Retrocede 1! Gime el nombre de tu pareja al oído.", level: "picante", move: -1 },
+            { text: "¡Retrocede 2! Deja que tu pareja te toque donde quiera por 30 segundos.", level: "picante", move: -2 },
+            { text: "¡Retrocede 3! Quítate una prenda y déjala fuera por 2 turnos.", level: "extremo", move: -3 },
+            { f: "¡Retrocede 2! Restriega tus pechos en la cara de tu pareja 15 seg.", m: "¡Retrocede 2! Restriega tu entrepierna contra tu pareja 15 seg.", level: "extremo", move: -2 },
+            { text: "¡Retrocede 3! Dale placer oral a tu pareja por 30 segundos.", level: "extremo", move: -3 },
+            { m: "¡Retrocede 2! Acaricia entre las piernas de tu pareja hasta que ella jadee.", f: "¡Retrocede 2! Acaricia entre las piernas de tu pareja hasta que él jadee.", level: "extremo", move: -2 }
         ],
         bonus: [
-            { text: "¡Suerte! Avanza 2 casillas.", level: "suave", move: 2 },
-            { text: "¡Avanza 1 y recibe un abrazo de oso!", level: "suave", move: 1 },
-            { text: "¡Avanza 1 y roba un beso!", level: "picante", move: 1 },
-            { text: "¡Avanza 2 y elige dónde te besa tu pareja!", level: "picante", move: 2 },
+            { text: "¡Suerte! Avanza 2 casillas y recibe un beso.", level: "suave", move: 2 },
+            { text: "¡Avanza 1 y recibe un abrazo de oso bien apretado!", level: "suave", move: 1 },
+            { text: "¡Avanza 1 y róbale un beso profundo a tu pareja!", level: "picante", move: 1 },
+            { text: "¡Avanza 2! Elige dónde te besa tu pareja ahora.", level: "picante", move: 2 },
             { text: "¡Avanza 2! Tu pareja te dedica un piropo subido de tono.", level: "picante", move: 2 },
-            { text: "¡Avanza 3! La pasión te impulsa.", level: "picante", move: 3 }
+            { text: "¡Avanza 3! La pasión te impulsa.", level: "picante", move: 3 },
+            { m: "¡Avanza 2! Tu pareja te deja acariciarle los pechos 15 seg.", f: "¡Avanza 2! Tu pareja te deja acariciarle el pecho 15 seg.", level: "picante", move: 2 },
+            { text: "¡Avanza 1! Quítale una prenda a tu pareja.", level: "picante", move: 1 },
+            { text: "¡Avanza 2! Recibe un masaje sensual de 1 minuto.", level: "picante", move: 2 },
+            { text: "¡Avanza 3! Tu pareja te debe un placer oral de 30 seg al terminar.", level: "extremo", move: 3 },
+            { f: "¡Avanza 2! Restriega tus pechos en tu pareja como premio 15 seg.", m: "¡Avanza 2! Restriégate contra tu pareja como premio 15 seg.", level: "extremo", move: 2 },
+            { text: "¡Avanza 3! Tu pareja cumple una fantasía tuya al final del juego.", level: "extremo", move: 3 }
         ],
         salvacion: [
             { text: "¡Trébol de la suerte! Ganas un escudo contra el próximo castigo.", level: "suave", shield: true },
@@ -1012,7 +1063,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "¡Salvada! Guarda este escudo para tu próximo castigo.", level: "suave", shield: true },
             { text: "¡Suerte! Un escudo te cubre del próximo castigo.", level: "suave", shield: true },
             { text: "¡Amuleto! Anula el siguiente castigo que te toque.", level: "suave", shield: true },
-            { text: "¡Escudo de pasión! El próximo retroceso lo esquivas.", level: "suave", shield: true }
+            { text: "¡Escudo de pasión! El próximo retroceso lo esquivas.", level: "suave", shield: true },
+            { text: "¡Ángel guardián! Bloqueas el próximo retroceso.", level: "suave", shield: true },
+            { text: "¡Buena estrella! El siguiente castigo no te toca.", level: "suave", shield: true },
+            { text: "¡Talismán! Esquivas el próximo retroceso.", level: "suave", shield: true },
+            { text: "¡Fortuna! Guarda un escudo para cuando lo necesites.", level: "suave", shield: true },
+            { text: "¡Bendición! El próximo castigo rebota.", level: "suave", shield: true },
+            { text: "¡Coraza! Te proteges del siguiente retroceso.", level: "suave", shield: true }
         ],
         escudo: [
             { text: "🛡️ Escudo activado: bloquea tu próximo castigo.", level: "suave", shield: true },
@@ -1020,41 +1077,41 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "🛡️ Coraza del amor: anula el próximo castigo.", level: "suave", shield: true },
             { text: "🛡️ Barrera: tu próximo castigo se cancela.", level: "suave", shield: true },
             { text: "🛡️ Inmunidad: esquivas el siguiente retroceso.", level: "suave", shield: true },
-            { text: "🛡️ Refuerzo: guardas un escudo para más tarde.", level: "suave", shield: true }
+            { text: "🛡️ Refuerzo: guardas un escudo para más tarde.", level: "suave", shield: true },
+            { text: "🛡️ Armadura: el próximo castigo no te frena.", level: "suave", shield: true },
+            { text: "🛡️ Muralla: detienes el siguiente retroceso.", level: "suave", shield: true },
+            { text: "🛡️ Burbuja: el próximo castigo rebota.", level: "suave", shield: true },
+            { text: "🛡️ Defensa total: anulas el siguiente retroceso.", level: "suave", shield: true },
+            { text: "🛡️ Blindaje: tu próximo castigo se esfuma.", level: "suave", shield: true },
+            { text: "🛡️ Resguardo: guardas un escudo para tu próximo castigo.", level: "suave", shield: true }
         ],
         promesa: [
             { text: "Recuérdale a tu pareja la promesa que cumplirá si pierde.", level: "suave" },
             { text: "Promete en voz alta un mimo extra para esta noche.", level: "suave" },
             { text: "Hagan una mini-promesa: un beso largo al terminar el juego.", level: "suave" },
             { text: "Mírense y prometan una cita sorpresa esta semana.", level: "suave" },
+            { text: "Prometan terminar la noche abrazados sin importar quién gane.", level: "suave" },
             { text: "Promete cumplir un antojo de tu pareja hoy.", level: "picante" },
-            { text: "Promete un masaje completo… al ganador o al perdedor 😏.", level: "picante" }
+            { text: "Promete un masaje completo al perdedor… o al ganador.", level: "picante" },
+            { text: "Promete cumplir una fantasía de tu pareja si pierdes.", level: "picante" },
+            { text: "Promete quitarte una prenda en tu próximo turno.", level: "picante" },
+            { text: "Prométele a tu pareja un beso en el lugar que ella elija.", level: "picante" },
+            { text: "Promete una noche entera a disposición de tu pareja si pierdes.", level: "extremo" },
+            { text: "Promete cumplir cualquier orden de tu pareja durante 10 minutos si pierdes.", level: "extremo" }
         ]
     };
 
     // ============================================================
-    //  AJUSTES (modal de nombres + intensidad) y selector del home
+    //  AJUSTES (modal de nombres) — sin selector de intensidad
     // ============================================================
-    const reflectIntensityChips = (root) => {
-        (root || document).querySelectorAll('.int-chip').forEach(c =>
-            c.classList.toggle('active', c.dataset.level === state.intensity));
-    };
-
     const setupOverlay = document.getElementById('setup-overlay');
     const openSetup = () => {
         document.getElementById('setup-name-1').value = P1() === 'Jugador 1' ? '' : P1();
         document.getElementById('setup-name-2').value = P2() === 'Jugador 2' ? '' : P2();
-        reflectIntensityChips(setupOverlay);
         setupOverlay.style.display = 'flex';
     };
     document.getElementById('config-btn').addEventListener('click', openSetup);
     setupOverlay.addEventListener('click', (e) => { if (e.target === setupOverlay) setupOverlay.style.display = 'none'; });
-    document.getElementById('setup-int-bar').addEventListener('click', (e) => {
-        const chip = e.target.closest('.int-chip');
-        if (!chip) return;
-        setIntensity(chip.dataset.level);
-        reflectIntensityChips();
-    });
     document.getElementById('setup-save').addEventListener('click', () => {
         const n1 = document.getElementById('setup-name-1').value.trim();
         const n2 = document.getElementById('setup-name-2').value.trim();
@@ -1098,17 +1155,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const greeting = document.getElementById('home-greeting');
             if (greeting && (P1() !== 'Jugador 1' || P2() !== 'Jugador 2')) {
                 greeting.textContent = `${P1()} y ${P2()}, elijan un juego para encender la noche.`;
-            }
-            // Selector de intensidad
-            const bar = document.getElementById('intensity-bar');
-            if (bar) {
-                reflectIntensityChips(bar);
-                bar.addEventListener('click', (e) => {
-                    const chip = e.target.closest('.int-chip');
-                    if (!chip) return;
-                    setIntensity(chip.dataset.level);
-                    reflectIntensityChips();
-                });
             }
         } else {
             // Back button
@@ -1477,10 +1523,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const hint = document.querySelector('.jenga-hint');
         const riskWrap = document.querySelector('.jenga-risk');
 
-        const LEVELS = 12, PER = 3, L = 132, S = 44, H = 28;
+        const LEVELS = 18, PER = 3, L = 132, S = 44, H = 19;   // 18 niveles x 3 = 54 fichas (Jenga real)
+        const TOWER_PIECES = LEVELS * PER;                      // 54
         let removed, turnIdx = 0, fallen, busy, rotX, rotY;
+        let jengaDeck = [];
 
         const curName = () => turnIdx === 0 ? P1() : P2();
+
+        // Mazo de 54 retos para la torre: cada reto único al menos una vez (36),
+        // y las casillas restantes se rellenan repitiendo picantes/extremos (máx 2 c/u).
+        function buildJengaDeck() {
+            const pool = filterByIntensity(JENGA_CHALLENGES, 'text');
+            const deck = pool.slice();                          // cada reto una vez
+            const spicy = pool.filter(c => c.level !== 'suave');
+            const extras = shuffle(spicy.length ? spicy : pool);
+            let i = 0;
+            while (deck.length < TOWER_PIECES) { deck.push(extras[i % extras.length]); i++; }
+            return shuffle(deck);
+        }
 
         const makeBox = (w, h, d) => {
             const box = document.createElement('div');
@@ -1576,6 +1636,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function build() {
             removed = new Set(); fallen = false; busy = false;
+            jengaDeck = buildJengaDeck();
             rotX = -20; rotY = 26;
             tower.innerHTML = '';
             tower.classList.remove('collapsing');
@@ -1633,11 +1694,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function showCard() {
-            const ch = pick(filterByIntensity(JENGA_CHALLENGES, 'text'));
+            if (!jengaDeck.length) jengaDeck = buildJengaDeck();
+            const ch = jengaDeck.pop();
+            const other = turnIdx === 0 ? P2() : P1();
+            const txt = ch.text.replace(/<player1>/g, curName()).replace(/<player2>/g, other);
             cardTag.textContent = 'RETO · ' + curName().toUpperCase();
             cardTag.className = 'jenga-card-tag lvl-' + (ch.level || 'picante');
-            cardText.textContent = ch.text;
-            const secs = parseSeconds(ch.text);
+            cardText.textContent = txt;
+            const secs = parseSeconds(txt);
             if (secs) createTimer(cardTimer, secs); else cardTimer.innerHTML = '';
             cardDone.style.display = '';
             cardDone.textContent = '¡HECHO!';
@@ -1773,6 +1837,13 @@ document.addEventListener('DOMContentLoaded', () => {
         p2El.querySelector('.dp-name').textContent = '🍑 ' + P2();
 
         const name = (i) => i === 0 ? P1() : P2();
+        // Resuelve el texto de la carta según el sexo del jugador en turno
+        // (turno 0 = 🍆 hombre -> usa .m ; turno 1 = 🍑 mujer -> usa .f ; si no hay, usa .text)
+        const sexText = (card) => {
+            if (!card) return '';
+            const k = turn === 0 ? 'm' : 'f';
+            return card[k] || card.text || '';
+        };
 
         // Genera puntos (%) sobre el contorno de un durazno (hendidura arriba, punta abajo)
         function peachCoords(n) {
@@ -1935,7 +2006,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function applyAndAdvance(cat, card) {
-            let msg = card ? card.text : '';
+            let msg = card ? sexText(card) : '';
             let delta = 0;
             if (cat === 'bonus') delta = card.move || 0;
             else if (cat === 'castigo') {

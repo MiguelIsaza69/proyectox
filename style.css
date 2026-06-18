@@ -818,6 +818,12 @@ footer {
 
 .promise-field input:focus { border-color: var(--passion-red); }
 
+/* Bordes por jugador en el registro: 🍆 Jugador 1 azul claro · 🍒 Jugador 2 rosado */
+#setup-name-1 { border-color: #8ecbff; }
+#setup-name-1:focus { border-color: #3aa0ff; box-shadow: 0 0 0 3px rgba(122, 196, 255, 0.30); }
+#setup-name-2 { border-color: #ff8fb3; }
+#setup-name-2:focus { border-color: #ff4f86; box-shadow: 0 0 0 3px rgba(255, 143, 179, 0.30); }
+
 /* --- Temporizador circular reutilizable --- */
 .pp-timer { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin: 1.2rem 0; }
 
